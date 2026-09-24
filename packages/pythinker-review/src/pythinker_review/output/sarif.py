@@ -68,7 +68,7 @@ def render_sarif(meta: RunMeta, findings: list[Finding]) -> str:
                 "tool": {
                     "driver": {
                         "name": "pythinker-review",
-                        "informationUri": "https://github.com/Pythoughts-labs/pythinker-cli",
+                        "informationUri": "https://github.com/PyModel/pythinker-cli",
                         "rules": list(rules_seen.values()),
                     }
                 },

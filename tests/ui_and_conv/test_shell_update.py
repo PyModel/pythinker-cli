@@ -1392,8 +1392,8 @@ async def test_do_update_brew_continues_when_refresh_fails(monkeypatch, tmp_path
 
 
 _BREW_UNTRUSTED_TAP_ERROR = (
-    "Error: Refusing to load formula pythoughts-labs/pythinker/pythinker-code "
-    "from untrusted tap pythoughts-labs/pythinker."
+    "Error: Refusing to load formula pymodel/pythinker/pythinker-code "
+    "from untrusted tap pymodel/pythinker."
 )
 
 
@@ -1403,9 +1403,9 @@ def test_homebrew_untrusted_tap_parses_refusal():
     lines = [
         "==> Updating Homebrew...",
         _BREW_UNTRUSTED_TAP_ERROR,
-        "Run `brew trust pythoughts-labs/pythinker` to trust it.",
+        "Run `brew trust pymodel/pythinker` to trust it.",
     ]
-    assert update._homebrew_untrusted_tap(lines) == "pythoughts-labs/pythinker"
+    assert update._homebrew_untrusted_tap(lines) == "pymodel/pythinker"
 
 
 def test_homebrew_untrusted_tap_ignores_unrelated_skip_warnings():
@@ -1421,10 +1421,10 @@ def test_homebrew_untrusted_tap_ignores_unrelated_skip_warnings():
 
 def test_homebrew_untrusted_tap_accepts_own_tap_skip_warning():
     lines = [
-        "Warning: Skipping pythoughts-labs/pythinker because it is not trusted. "
-        + "Run `brew trust pythoughts-labs/pythinker` to trust it.",
+        "Warning: Skipping pymodel/pythinker because it is not trusted. "
+        + "Run `brew trust pymodel/pythinker` to trust it.",
     ]
-    assert update._homebrew_untrusted_tap(lines) == "pythoughts-labs/pythinker"
+    assert update._homebrew_untrusted_tap(lines) == "pymodel/pythinker"
 
 
 def test_homebrew_untrusted_tap_none_on_unrelated_output():
@@ -1452,7 +1452,7 @@ async def test_do_update_brew_untrusted_tap_prints_trust_hint(monkeypatch, tmp_p
     result = await update.do_update(print_output=False, output_callback=messages.append)
 
     assert result is update.UpdateResult.FAILED
-    assert any("brew trust pythoughts-labs/pythinker" in m for m in messages)
+    assert any("brew trust pymodel/pythinker" in m for m in messages)
     # The raw brew error still reaches the caller's callback unmodified.
     assert _BREW_UNTRUSTED_TAP_ERROR in messages
 
@@ -1470,7 +1470,7 @@ async def test_do_update_brew_untrusted_tap_trusts_and_retries_on_consent(monkey
             and [
                 "brew",
                 "trust",
-                "pythoughts-labs/pythinker",
+                "pymodel/pythinker",
             ]
             not in ran
         ):
@@ -1479,7 +1479,7 @@ async def test_do_update_brew_untrusted_tap_trusts_and_retries_on_consent(monkey
         return 0
 
     async def fake_confirm(tap: str) -> bool:
-        assert tap == "pythoughts-labs/pythinker"
+        assert tap == "pymodel/pythinker"
         return True
 
     _brew_upgrade_do_update_env(monkeypatch, tmp_path)
@@ -1494,7 +1494,7 @@ async def test_do_update_brew_untrusted_tap_trusts_and_retries_on_consent(monkey
     assert ran == [
         ["brew", "update", "--quiet"],
         ["brew", "upgrade", "pythinker-code"],
-        ["brew", "trust", "pythoughts-labs/pythinker"],
+        ["brew", "trust", "pymodel/pythinker"],
         ["brew", "update", "--quiet"],
         ["brew", "upgrade", "pythinker-code"],
     ]
@@ -1525,9 +1525,9 @@ async def test_do_update_brew_untrusted_tap_declined_consent_fails_with_hint(mon
     result = await update.do_update(print_output=False, output_callback=messages.append)
 
     assert result is update.UpdateResult.FAILED
-    assert ["brew", "trust", "pythoughts-labs/pythinker"] not in ran
+    assert ["brew", "trust", "pymodel/pythinker"] not in ran
     assert ran.count(["brew", "upgrade", "pythinker-code"]) == 1
-    assert any("brew trust pythoughts-labs/pythinker" in m for m in messages)
+    assert any("brew trust pymodel/pythinker" in m for m in messages)
 
 
 @pytest.mark.asyncio
@@ -1558,7 +1558,7 @@ async def test_do_update_brew_untrusted_tap_trust_failure_degrades_to_hint(monke
 
     assert result is update.UpdateResult.FAILED
     assert ran.count(["brew", "upgrade", "pythinker-code"]) == 1
-    assert any("brew trust pythoughts-labs/pythinker" in m for m in messages)
+    assert any("brew trust pymodel/pythinker" in m for m in messages)
 
 
 @pytest.mark.asyncio
@@ -1573,8 +1573,8 @@ async def test_do_update_brew_silent_noop_with_untrusted_tap_prints_trust_hint(
     def fake_run_upgrade_command(command, *, print_output: bool, output_callback):
         if command == ["brew", "update", "--quiet"]:
             output_callback(
-                "Warning: Skipping pythoughts-labs/pythinker because it is not "
-                "trusted. Run `brew trust pythoughts-labs/pythinker` to trust it."
+                "Warning: Skipping pymodel/pythinker because it is not "
+                "trusted. Run `brew trust pymodel/pythinker` to trust it."
             )
         return 0
 
@@ -1587,7 +1587,7 @@ async def test_do_update_brew_silent_noop_with_untrusted_tap_prints_trust_hint(
 
     assert result is update.UpdateResult.FAILED
     assert not any("Updated successfully" in m for m in messages)
-    assert any("brew trust pythoughts-labs/pythinker" in m for m in messages)
+    assert any("brew trust pymodel/pythinker" in m for m in messages)
 
 
 def test_installed_homebrew_version_returns_max_installed(monkeypatch):

@@ -17,7 +17,7 @@ async def test_default_agent(runtime: Runtime):
     # Identity invariants — targeted checks so unrelated prompt edits don't break this test.
     assert "## 1. Identity" in agent.system_prompt
     assert "Pythinker" in agent.system_prompt
-    assert "Pythoughts-labs" in agent.system_prompt
+    assert "PyModel" in agent.system_prompt
     assert "Never name or describe the underlying model" in agent.system_prompt
 
     # Production guardrails — keep defensive coding rules in the base prompt so root and
@@ -664,5 +664,5 @@ def test_default_system_prompt_prevents_duplicate_report_prose() -> None:
     )
     encoding = "utf-8"
     assert sha256(prompt.encode(encoding)).hexdigest() == (
-        "67ddfe5d56b75d00406442a8445027d04eeaf33eae51049102984ed572adfc78"
+        "af2df36adef9e9a8af87a4c0be917bf8f1a6241138ed0cba501a486d8fb2ff00"
     )

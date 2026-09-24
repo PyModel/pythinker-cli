@@ -103,7 +103,7 @@ def test_default_config_dump():
                 "api_key": None,
                 "custom_headers": None,
                 "github_client_id": "",
-                "github_repo": "Pythoughts-labs/pythinker-cli",
+                "github_repo": "PyModel/pythinker-cli",
             },
             "hooks": [],
             "merge_all_available_skills": True,
@@ -202,19 +202,31 @@ def test_load_config_migrates_legacy_feedback_repo_default():
     old_owner = "mohamed-elkholy95"
     config = load_config_from_string(f'[feedback]\ngithub_repo = "{old_owner}/Pythinker-Code"\n')
 
-    assert config.feedback.github_repo == "Pythoughts-labs/pythinker-cli"
+    assert config.feedback.github_repo == "PyModel/pythinker-cli"
 
 
 def test_load_config_migrates_legacy_org_feedback_repo_default():
     config = load_config_from_string('[feedback]\ngithub_repo = "TechMatrix-labs/pythinker-code"\n')
 
-    assert config.feedback.github_repo == "Pythoughts-labs/pythinker-cli"
+    assert config.feedback.github_repo == "PyModel/pythinker-cli"
 
 
 def test_load_config_migrates_pre_rename_feedback_repo_default():
     config = load_config_from_string('[feedback]\ngithub_repo = "Pythoughts-labs/pythinker-code"\n')
 
-    assert config.feedback.github_repo == "Pythoughts-labs/pythinker-cli"
+    assert config.feedback.github_repo == "PyModel/pythinker-cli"
+
+
+def test_load_config_migrates_pre_pymodel_feedback_repo_default():
+    config = load_config_from_string('[feedback]\ngithub_repo = "Pythoughts-labs/pythinker-cli"\n')
+
+    assert config.feedback.github_repo == "PyModel/pythinker-cli"
+
+
+def test_load_config_keeps_pymodel_pythinker_code_feedback_repo():
+    config = load_config_from_string('[feedback]\ngithub_repo = "PyModel/pythinker-code"\n')
+
+    assert config.feedback.github_repo == "PyModel/pythinker-code"
 
 
 def test_agent_execution_profile_autonomous_sets_autonomy_defaults():

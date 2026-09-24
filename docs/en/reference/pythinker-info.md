@@ -29,7 +29,7 @@ pythinker info [--json]
 ```sh
 $ pythinker info
 pythinker-code version: 1.20.0
-developed by: Pythoughts-labs
+developed by: PyModel
 agent spec versions: 1
 wire protocol: 1.9
 python version: 3.13.1
@@ -39,5 +39,5 @@ python version: 3.13.1
 
 ```sh
 $ pythinker info --json
-{"pythinker_code_version": "1.20.0", "organization": "Pythoughts-labs", "agent_spec_versions": ["1"], "wire_protocol_version": "1.9", "python_version": "3.13.1"}
+{"pythinker_code_version": "1.20.0", "organization": "PyModel", "agent_spec_versions": ["1"], "wire_protocol_version": "1.9", "python_version": "3.13.1"}
 ```

@@ -4,8 +4,8 @@ from functools import cache
 from typing import TYPE_CHECKING
 
 NAME = "Pythinker CLI"
-ORGANIZATION = "Pythoughts-labs"
-CONTACT = "hello@pythoughts.com"
+ORGANIZATION = "PyModel"
+CONTACT = "hello@pymodel.com"
 
 if TYPE_CHECKING:
     VERSION: str
