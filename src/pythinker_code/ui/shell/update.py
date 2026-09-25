@@ -52,11 +52,10 @@ from pythinker_code.utils.aiohttp import new_client_session
 from pythinker_code.utils.logging import logger
 from pythinker_code.utils.subprocess_env import get_clean_env
 
-CHANGELOG_URL_EN = "https://github.com/Pythoughts-labs/pythinker-cli/blob/main/CHANGELOG.md"
+CHANGELOG_URL_EN = "https://github.com/PyModel/pythinker-cli/blob/main/CHANGELOG.md"
 PYPI_VERSION_URL = "https://pypi.org/pypi/pythinker-code/{version}/json"
 HOMEBREW_FORMULA_URL = (
-    "https://raw.githubusercontent.com/Pythoughts-labs/homebrew-pythinker/"
-    "main/Formula/pythinker-code.rb"
+    "https://raw.githubusercontent.com/PyModel/homebrew-pythinker/main/Formula/pythinker-code.rb"
 )
 
 # Default upgrade command. `_detect_upgrade_command()` overrides this when the
@@ -1735,7 +1734,7 @@ async def _do_update(
             _print(
                 f"[{_t.warning}]Auto-update disabled. "
                 "Download the new installer manually from "
-                "https://github.com/Pythoughts-labs/pythinker-cli/releases/latest[/]"
+                "https://github.com/PyModel/pythinker-cli/releases/latest[/]"
             )
             return UpdateResult.UPDATE_AVAILABLE
         if native_result is UpdateResult.FAILED:

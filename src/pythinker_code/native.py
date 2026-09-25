@@ -13,7 +13,7 @@ import platform
 import sys
 from pathlib import Path
 
-GITHUB_REPO = "Pythoughts-labs/pythinker-cli"
+GITHUB_REPO = "PyModel/pythinker-cli"
 SENTINEL_FILENAME = ".pythinker-native"
 
 

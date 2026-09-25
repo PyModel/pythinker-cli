@@ -1,12 +1,12 @@
 [project]
 name = "pythinker-code"
 version = "0.62.0"
-description = "Pythinker — an agentic CLI developed by Pythoughts-labs."
+description = "Pythinker — an agentic CLI developed by PyModel."
 readme = "README.md"
 requires-python = ">=3.12"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
-authors = [{ name = "Pythoughts-labs", email = "hello@pythoughts.com" }]
+authors = [{ name = "PyModel", email = "hello@pymodel.com" }]
 keywords = ["cli", "agent", "ai", "coding-assistant", "llm", "claude", "openai", "terminal"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -113,11 +113,11 @@ pythinker = "pythinker_code.__main__:main"
 pythinker-code = "pythinker_code.__main__:main"
 
 [project.urls]
-Homepage      = "https://github.com/Pythoughts-labs/pythinker-cli"
-Repository    = "https://github.com/Pythoughts-labs/pythinker-cli"
-Issues        = "https://github.com/Pythoughts-labs/pythinker-cli/issues"
-Changelog     = "https://github.com/Pythoughts-labs/pythinker-cli/blob/main/CHANGELOG.md"
-Documentation = "https://github.com/Pythoughts-labs/pythinker-cli#readme"
+Homepage      = "https://github.com/PyModel/pythinker-cli"
+Repository    = "https://github.com/PyModel/pythinker-cli"
+Issues        = "https://github.com/PyModel/pythinker-cli/issues"
+Changelog     = "https://github.com/PyModel/pythinker-cli/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/PyModel/pythinker-cli#readme"
 
 [tool.ruff]
 line-length = 100

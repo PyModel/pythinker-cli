@@ -95,7 +95,7 @@ def supports_deferred_tool_search(llm: LLM | None) -> bool:
     them. So `_is_tool_visible` hides `ToolSearch` whenever this returns False.
 
     The gate applies three checks: env override (`ENABLE_TOOL_SEARCH`),
-    a genuine-first-party-host check (`isFirstPartyPythoughtsBaseUrl`), and a
+    a genuine-first-party-host check (`isFirstPartyPyModelBaseUrl`), and a
     model-capability check (`modelSupportsToolReference`). Keep it derived from the
     ACTIVE model so a mid-session `/model` switch re-evaluates it.
 

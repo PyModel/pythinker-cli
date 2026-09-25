@@ -33,8 +33,8 @@ pythinker-debug = "pythinker_review.cli.debug:app"
 pythinker-security-scan = "pythinker_review.cli.security_scan:app"
 
 [project.urls]
-Homepage = "https://github.com/Pythoughts-labs/pythinker-cli"
-Repository = "https://github.com/Pythoughts-labs/pythinker-cli"
+Homepage = "https://github.com/PyModel/pythinker-cli"
+Repository = "https://github.com/PyModel/pythinker-cli"
 
 [dependency-groups]
 dev = [

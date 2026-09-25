@@ -10,5 +10,5 @@ hero:
       link: /en/guides/getting-started
     - theme: alt
       text: GitHub
-      link: https://github.com/Pythoughts-labs/pythinker-cli
+      link: https://github.com/PyModel/pythinker-cli
 ---
