@@ -28,7 +28,7 @@ dependencies = [
     "pydantic>=2.12.5",
     "python-dotenv>=1.2.2",
     "typing-extensions>=4.15.0",
-    "mcp>=1.23,<2",
+    "mcp>=1.30.0,<2",
 ]
 
 [project.optional-dependencies]
