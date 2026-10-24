@@ -44,7 +44,7 @@ dependencies = [
     # lxml is used by trafilatura/htmldate/justext; keep pinned for binary wheels.
     "lxml==6.1.1",
     "tenacity==9.1.4",
-    "fastmcp==3.2.0",
+    "fastmcp==3.4.10",
     "pydantic==2.13.4",
     "httpx[socks]==0.28.1",
     "pythinker-host==1.0.0",
